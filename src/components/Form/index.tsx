@@ -9,11 +9,11 @@ interface PageProps {
 
 export const Form: React.FC<PageProps> = ({ setTarefasState }) => {
   const [tarefa, setTarefa] = useState("");
-  const [tempo, setTempo] = useState("");
+  const [tempo, setTempo] = useState("00:00:00");
 
   const resetState = () => {
     setTarefa("");
-    setTempo("");
+    setTempo("00:00:00");
   };
   const adicionarTarefa = (e: React.FormEvent) => {
     e.preventDefault();

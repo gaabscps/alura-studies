@@ -25,7 +25,7 @@ function App() {
         tarefasState={tarefasState}
         selecionaTarefa={selecionaTarefa}
       />
-      <Cronometro />
+      <Cronometro selecionado={selecionado} />
     </div>
   );
 }

@@ -36,6 +36,9 @@ export const FormScreen: React.FC<FormScreenProps> = ({
           <label htmlFor="tempo">Tempo</label>
           <input
             type="time"
+            step="1"
+            max="01:30:00"
+            placeholder="00:00:00"
             name="tempo"
             id="tempo"
             onChange={(e) => setTempo(e.target.value)}
