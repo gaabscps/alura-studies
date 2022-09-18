@@ -1,3 +1,5 @@
+import "./style.scss";
+
 interface Props {
   tempo?: number;
 }
@@ -14,12 +16,22 @@ export const Relogio = ({ tempo = 0 }: Props) => {
     .split("");
 
   return (
-    <div>
-      <span className="relogioNumero">{minutoDezena}</span>
-      <span className="relogioNumero">{minutoUnidade}</span>
-      <span className="relogioDivisao">:</span>
-      <span className="relogioNumero">{segundoDezena}</span>
-      <span className="relogioNumero">{segundoUnidade}</span>
+    <div className="container">
+      <div className="relogioNumero">
+        <span>{minutoDezena}</span>
+      </div>
+      <div className="relogioNumero">
+        <span>{minutoUnidade}</span>
+      </div>
+      <div className="relogioDivisao">
+        <span>:</span>
+      </div>
+      <div className="relogioNumero">
+        <span>{segundoDezena}</span>
+      </div>
+      <div className="relogioNumero">
+        <span>{segundoUnidade}</span>
+      </div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Relogio } from "./Relogio";
 import { tempoParaSegundos } from "../../common/utils/time";
 import { ITarefas } from "../../Types/types";
 import { useEffect, useState } from "react";
+import "./style.scss";
 
 interface Props {
   selecionado?: ITarefas | undefined;
@@ -41,7 +42,7 @@ export const Cronometro = ({ selecionado, finalizarTarefa }: Props) => {
   return (
     <div className="cronometro">
       <p className="titulo">Escolha um card e inicie o cronometro</p>
-      <div className="relogio.Wrapper">
+      <div className="relogioWrapper">
         <Relogio tempo={tempo} />
       </div>
       <Button onClick={() => regressiva(tempo ? tempo : 0)}>Comecar</Button>
