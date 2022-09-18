@@ -1,22 +1,22 @@
-import { type } from "@testing-library/user-event/dist/type";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import "../style.scss";
+import { Item } from "../Item";
+import { ITarefas } from "../../../Types/types";
 
 interface ListScreenProps {
-  tarefas: object[];
+  tarefasState: ITarefas[];
 }
 
-export const ListScreen = (props: ListScreenProps) => {
+export const ListScreen: React.FC<ListScreenProps> = ({ tarefasState }) => {
   return (
     <aside className="listaTarefas">
       <div>
         <h2>Estudos do dia</h2>
         <ul>
-          {props.tarefas.map((item: any, index: any) => (
-            <li className="item" key={index}>
-              <h3>{item.tarefa}</h3>
-              <span>{item.tempo}</span>
-            </li>
+          {tarefasState.map((item: any, index: any) => (
+            <div>
+              <Item key={index} {...item} />
+            </div>
           ))}
         </ul>
       </div>
