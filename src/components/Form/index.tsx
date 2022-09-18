@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ITarefas } from "../../Types/types";
 import { FormScreen } from "./ui";
+import { v4 as uuidv4 } from "uuid";
 
 interface PageProps {
   setTarefasState: React.Dispatch<React.SetStateAction<ITarefas[]>>;
@@ -10,6 +11,10 @@ export const Form: React.FC<PageProps> = ({ setTarefasState }) => {
   const [tarefa, setTarefa] = useState("");
   const [tempo, setTempo] = useState("");
 
+  const resetState = () => {
+    setTarefa("");
+    setTempo("");
+  };
   const adicionarTarefa = (e: React.FormEvent) => {
     e.preventDefault();
     setTarefasState((prevState: any) => [
@@ -17,8 +22,12 @@ export const Form: React.FC<PageProps> = ({ setTarefasState }) => {
       {
         tarefa,
         tempo,
+        selecionado: false,
+        completado: false,
+        id: uuidv4(),
       },
     ]);
+    resetState();
   };
   return (
     <FormScreen
